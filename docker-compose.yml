@@ -1,0 +1,28 @@
+version: '3'
+services:
+  db:
+    build: ./db
+    image: t3chy/aqidb
+    environment:
+      MYSQL_DATABASE: sensdata
+      MYSQL_ROOT_PASSWORD: supersecret
+      MYSQL_USER: mysql
+      MYSQL_PASSWORD: supersecret
+      DATABASE_HOST: db
+    volumes:
+            - "./data:/var/lib/mysql:rw"
+
+  web:
+    build: ./web
+    image: t3chy/aqinodejs
+    environment:
+      MYSQL_HOST: db
+      MYSQL_PORT: 3306
+      MYSQL_DATABASE: sensdata
+      MYSQL_USER: root
+      MYSQL_PASSWORD: supersecret
+    ports:
+      - "3257:3257"
+    depends_on:
+      - db
+    restart: on-failure

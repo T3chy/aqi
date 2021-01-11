@@ -1,0 +1,6 @@
+[submodule "aqinodejs"]
+	path = aqinodejs
+	url = https://github.com/T3chy/aqinodejs
+[submodule "aqidb"]
+	path = aqidb
+	url = https://github.com/T3chy/aqidb
