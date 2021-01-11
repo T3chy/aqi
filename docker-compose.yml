@@ -1,7 +1,7 @@
 version: '3'
 services:
   db:
-    build: ./db
+    # build: ./aqidb
     image: t3chy/aqidb
     environment:
       MYSQL_DATABASE: sensdata
@@ -13,7 +13,7 @@ services:
             - "./data:/var/lib/mysql:rw"
 
   web:
-    build: ./web
+    # build: ./aqinodejs
     image: t3chy/aqinodejs
     environment:
       MYSQL_HOST: db
